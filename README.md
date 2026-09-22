@@ -108,8 +108,8 @@ Compile LibPNG with AFL instrumentation pass (afl-clang-fast) so that code cover
 ```bash
 cd $WORKDIR
 git clone https://github.com/glennrp/libpng.git libpng-afl
-git checkout 916117d
 cd libpng-afl
+git checkout 916117d
 sed -i 's/return ((int)(crc != png_ptr->crc));/return (0);/g' pngrutil.c
 autoreconf -f -i
 CC=afl-clang-fast ./configure --disable-shared
